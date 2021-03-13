@@ -22,7 +22,7 @@ print(argv)
 gds <- seqOpen(argv$gds_file)
 
 # filter by PASS
-if (argv$no_pass_filter) {
+if (!argv$no_pass_filter) {
     filt <- seqGetData(gds, "annotation/filter")
     seqSetFilter(gds, variant.sel=(filt == "PASS"))
 }
