@@ -7,7 +7,7 @@ argp <- add_argument(argp, "--out_prefix", help="Prefix for output files", defau
 argp <- add_argument(argp, "--maf_min", help="minimum MAF of variants to use", default=0)
 argp <- add_argument(argp, "--maf_max", help="maximum MAF of variants to use", default=0.5)
 argp <- add_argument(argp, "--no_pass_filter", help="use variants with a filter value other than PASS", flag=TRUE)
-argp <- add_argument(argp, "--num_cores", help="Number of cores to utilize for parallel processing", default=1)
+argp <- add_argument(argp, "--cpu", help="Number of CPUs to utilize for parallel processing", default=1)
 argv <- parse_args(argp)
 
 # load libraries
@@ -29,7 +29,7 @@ if (!argv$no_pass_filter) {
 
 # filter by MAF
 if (argv$maf_min > 0 | argv$maf_max < 0.5) {
-    seqSetFilterCond(gds, maf=c(argv$maf_min, argv$maf_max), parallel=argv$num_cores)
+    seqSetFilterCond(gds, maf=c(argv$maf_min, argv$maf_max), parallel=argv$cpu)
 }
 
 het <- heterozygosity(gds, margin="by.sample", use.names=FALSE)
