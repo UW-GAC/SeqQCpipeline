@@ -17,6 +17,7 @@ R -q --vanilla --args \
   --gds_file $BASE_PATH/test/data/1KG_phase3_subset_chr22.gds \
   --out_prefix test \
   --maf_min 0.01 --maf_max 0.45 \
+  --cpu 2 \
   < $BASE_PATH/R/het_by_sample.R
 
 R -q --vanilla --args test_het_by_sample.rds \
