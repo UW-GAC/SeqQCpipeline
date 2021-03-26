@@ -12,6 +12,7 @@ argv <- parse_args(argp)
 
 # load libraries
 library(SeqVarTools)
+library(ggplot2)
 sessionInfo()
 
 # log versions and arguments for reproducibility
@@ -44,3 +45,14 @@ if (nchar(argv$out_prefix) > 0) {
 saveRDS(het.df, file=outfile)
 
 seqClose(gds)
+
+
+# plot
+p <- ggplot(het.df, aes(het)) +
+    geom_histogram(binwidth=0.01, boundary=0)
+
+outfile <- "het_by_sample.pdf"
+if (nchar(argv$out_prefix) > 0) {
+    outfile <- paste(argv$out_prefix, outfile, sep="_")
+}
+ggsave(outfile, plot=p)
