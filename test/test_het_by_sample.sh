@@ -4,7 +4,7 @@ BASE_PATH=$1
 
 # basic
 R -q --vanilla --args \
-  --gds_file $BASE_PATH/test/data/1KG_phase3_subset_chr22.gds \
+  --gds_file $BASE_PATH/test/data/gds/1KG_phase3_subset_chr22.gds \
   --out_prefix test \
   < $BASE_PATH/R/het_by_sample.R
 
@@ -14,7 +14,7 @@ R -q --vanilla --args test_het_by_sample.rds \
 
 # MAF range, parallel
 R -q --vanilla --args \
-  --gds_file $BASE_PATH/test/data/1KG_phase3_subset_chr22.gds \
+  --gds_file $BASE_PATH/test/data/gds/1KG_phase3_subset_chr22.gds \
   --out_prefix test \
   --maf_min 0.01 --maf_max 0.45 \
   --cpu 2 \
@@ -26,7 +26,7 @@ R -q --vanilla --args test_het_by_sample.rds \
 
 # no-pass variants
 R -q --vanilla --args \
-  --gds_file $BASE_PATH/test/data/1KG_phase3_subset_chr22.gds \
+  --gds_file $BASE_PATH/test/data/gds/1KG_phase3_subset_chr22.gds \
   --out_prefix test \
   --maf_min 0.01 \
   --no_pass_filter \
