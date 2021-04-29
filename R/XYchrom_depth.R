@@ -40,7 +40,8 @@ dat <- lapply(infile, function(f) {
 }) %>%
     bind_rows() %>%
     pivot_wider(names_from=rname, values_from=meandepth) %>%
-    mutate(Xnorm=chrX/auto, Ynorm=chrY/auto)
+    rename(X_depth=chrX, Y_depth=chrY, auto_depth=auto) %>%
+    mutate(X_norm_depth=X_depth/auto_depth, Y_norm_depth=Y_depth/auto_depth)
 
 outfile <- "norm_depth.rds"
 if (nchar(argv$out_prefix) > 0) {
@@ -48,7 +49,7 @@ if (nchar(argv$out_prefix) > 0) {
 }
 saveRDS(dat, file=outfile)
 
-p <- ggplot(dat, aes(Xnorm, Ynorm)) +
+p <- ggplot(dat, aes(X_norm_depth, Y_norm_depth)) +
     geom_point() +
     xlab("normalized X chrom depth") +
     ylab("normalized Y chrom depth")
