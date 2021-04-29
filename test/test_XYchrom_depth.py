@@ -137,8 +137,8 @@ class Platform(unittest.TestCase):
         wait(self.task)
         if self.task.status == 'COMPLETED':
             self.log.info(f" Checking {self.APP} output naming")
-            out_expected_name = 'unittest_XYchr_norm_depth.rds'
-            out_name = self.task.outputs['XYchrom_depth'].name
+            out_expected_name = 'unittest_norm_depth.rds'
+            out_name = self.task.outputs['depth'].name
             if out_name.startswith('_'):
                 self.assertEqual(out_expected_name, '_'.join(out_name.split('_')[2:]))
             else:
