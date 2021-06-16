@@ -35,8 +35,9 @@ if (argv$maf_min > 0 | argv$maf_max < 0.5) {
 
 het <- heterozygosity(gds, margin="by.sample", use.names=FALSE)
 sample.id <- seqGetData(gds, "sample.id")
+n <- SeqVarTools:::.nVar(gds)
 
-het.df <- data.frame(sample.id, het, stringsAsFactors=FALSE)
+het.df <- data.frame(sample.id, het, n=n, stringsAsFactors=FALSE)
 
 outfile <- "het_by_sample.rds"
 if (nchar(argv$out_prefix) > 0) {
