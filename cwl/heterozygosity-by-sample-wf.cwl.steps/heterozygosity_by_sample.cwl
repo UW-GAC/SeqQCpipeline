@@ -1,4 +1,4 @@
-cwlVersion: v1.1
+cwlVersion: v1.2
 class: CommandLineTool
 label: Heterozygosity by sample
 doc: |-
@@ -101,8 +101,10 @@ outputs:
 stdout: job.out.log
 
 baseCommand:
+- wget
 - |-
-  wget https://raw.githubusercontent.com/UW-GAC/SeqQCpipeline/master/R/het_by_sample.R &&
+  https://raw.githubusercontent.com/UW-GAC/SeqQCpipeline/b56e3763ea156f1e8a160b6889cb045a543082a3/R/het_by_sample.R
+- '&&'
 - R -q --vanilla --args
 arguments:
 - prefix: <
@@ -113,28 +115,27 @@ arguments:
 hints:
 - class: sbg:SaveLogs
   value: '*.log'
-id: |-
-  https://api.sb.biodatacatalyst.nhlbi.nih.gov/v2/apps/smgogarten/qc-for-gwas-development/heterozygosity-by-sample/7/raw/
+id: smgogarten/qc-for-gwas-development/heterozygosity-by-sample/10
 sbg:appVersion:
-- v1.1
+- v1.2
 sbg:categories:
 - GWAS
 - Quality Control
-sbg:content_hash: a36296ad742c9eefa4aac12c6ca5b921fcc27e8385d3c13db6cabb4dc68d5f933
+sbg:content_hash: a4348d5bfacf88c0d3b527fc038f86b8282c17cb4a453bbf2f4ee85d1ff13aa44
 sbg:contributors:
 - smgogarten
 sbg:createdBy: smgogarten
 sbg:createdOn: 1615616553
-sbg:id: smgogarten/qc-for-gwas-development/heterozygosity-by-sample/7
+sbg:id: smgogarten/qc-for-gwas-development/heterozygosity-by-sample/10
 sbg:image_url:
-sbg:latestRevision: 7
+sbg:latestRevision: 10
 sbg:modifiedBy: smgogarten
-sbg:modifiedOn: 1616739236
+sbg:modifiedOn: 1623954310
 sbg:project: smgogarten/qc-for-gwas-development
 sbg:projectName: QC for GWAS - development
 sbg:publisher: sbg
-sbg:revision: 7
-sbg:revisionNotes: add plot output
+sbg:revision: 10
+sbg:revisionNotes: revert to wget, use tagged commit of R script
 sbg:revisionsInfo:
 - sbg:modifiedBy: smgogarten
   sbg:modifiedOn: 1615616553
@@ -168,6 +169,18 @@ sbg:revisionsInfo:
   sbg:modifiedOn: 1616739236
   sbg:revision: 7
   sbg:revisionNotes: add plot output
+- sbg:modifiedBy: smgogarten
+  sbg:modifiedOn: 1623887774
+  sbg:revision: 8
+  sbg:revisionNotes: combine_chroms branch
+- sbg:modifiedBy: smgogarten
+  sbg:modifiedOn: 1623953715
+  sbg:revision: 9
+  sbg:revisionNotes: use $include instead of wget
+- sbg:modifiedBy: smgogarten
+  sbg:modifiedOn: 1623954310
+  sbg:revision: 10
+  sbg:revisionNotes: revert to wget, use tagged commit of R script
 sbg:sbgMaintained: false
 sbg:toolkit: UW-GAC QC for GWAS
 sbg:validationErrors: []
