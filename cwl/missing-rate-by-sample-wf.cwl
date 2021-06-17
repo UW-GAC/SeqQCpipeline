@@ -1,6 +1,8 @@
 cwlVersion: v1.2
 class: Workflow
 label: Missing rate by sample
+doc: |-
+  This tool calculates missing rate by sample over multiple input files in parallel (e.g., per-chromosome files) and combines the results. A subset of variants may be specified.
 $namespaces:
   sbg: https://sevenbridges.com
 
@@ -34,6 +36,7 @@ inputs:
   doc: Number of CPUs to use.
   type: int?
   sbg:exposed: true
+  sbg:toolDefaultValue: '1'
 
 outputs:
 - id: missing_by_sample
@@ -91,23 +94,26 @@ steps:
   sbg:y: -23
 sbg:appVersion:
 - v1.2
-sbg:content_hash: a83c01276b0924b7a4e18d116bff84f542a7fcaeef4f86ac4cf2fe0ca14e5530d
+sbg:categories:
+- GWAS
+- Quality Control
+sbg:content_hash: ac767099ec2b998d7579359a38e944b4acfc1fedb6eed7b525493a0bea2033eb2
 sbg:contributors:
 - smgogarten
 sbg:createdBy: smgogarten
 sbg:createdOn: 1623894386
-sbg:id: smgogarten/qc-for-gwas-development/missing-rate-by-sample-wf/3
+sbg:id: smgogarten/qc-for-gwas-development/missing-rate-by-sample-wf/4
 sbg:image_url:
-sbg:latestRevision: 3
+sbg:latestRevision: 4
 sbg:modifiedBy: smgogarten
-sbg:modifiedOn: 1623954655
+sbg:modifiedOn: 1623957506
 sbg:original_source: |-
-  https://api.sb.biodatacatalyst.nhlbi.nih.gov/v2/apps/smgogarten/qc-for-gwas-development/missing-rate-by-sample-wf/3/raw/
+  https://api.sb.biodatacatalyst.nhlbi.nih.gov/v2/apps/smgogarten/qc-for-gwas-development/missing-rate-by-sample-wf/4/raw/
 sbg:project: smgogarten/qc-for-gwas-development
 sbg:projectName: QC for GWAS - development
 sbg:publisher: sbg
-sbg:revision: 3
-sbg:revisionNotes: use tagged commit
+sbg:revision: 4
+sbg:revisionNotes: add documentation
 sbg:revisionsInfo:
 - sbg:modifiedBy: smgogarten
   sbg:modifiedOn: 1623894386
@@ -125,5 +131,10 @@ sbg:revisionsInfo:
   sbg:modifiedOn: 1623954655
   sbg:revision: 3
   sbg:revisionNotes: use tagged commit
+- sbg:modifiedBy: smgogarten
+  sbg:modifiedOn: 1623957506
+  sbg:revision: 4
+  sbg:revisionNotes: add documentation
 sbg:sbgMaintained: false
+sbg:toolkit: UW-GAC QC for GWAS
 sbg:validationErrors: []

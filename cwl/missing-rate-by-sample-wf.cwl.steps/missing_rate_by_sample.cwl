@@ -86,24 +86,27 @@ arguments:
 hints:
 - class: sbg:SaveLogs
   value: '*.log'
-id: smgogarten/qc-for-gwas-development/missing-rate-by-sample/2
+id: smgogarten/qc-for-gwas-development/missing-rate-by-sample/3
 sbg:appVersion:
 - v1.2
+sbg:categories:
+- GWAS
+- Quality Control
 sbg:content_hash: abc6cd09e75fd84e10ee28fcc5449ac97bf43f63fadcddb91fcd2e7e7c809ff94
 sbg:contributors:
 - smgogarten
 sbg:createdBy: smgogarten
 sbg:createdOn: 1623893007
-sbg:id: smgogarten/qc-for-gwas-development/missing-rate-by-sample/2
+sbg:id: smgogarten/qc-for-gwas-development/missing-rate-by-sample/3
 sbg:image_url:
-sbg:latestRevision: 2
+sbg:latestRevision: 3
 sbg:modifiedBy: smgogarten
-sbg:modifiedOn: 1623954583
+sbg:modifiedOn: 1623957429
 sbg:project: smgogarten/qc-for-gwas-development
 sbg:projectName: QC for GWAS - development
 sbg:publisher: sbg
-sbg:revision: 2
-sbg:revisionNotes: use tagged commit
+sbg:revision: 3
+sbg:revisionNotes: add toolkit and categories
 sbg:revisionsInfo:
 - sbg:modifiedBy: smgogarten
   sbg:modifiedOn: 1623893007
@@ -117,5 +120,10 @@ sbg:revisionsInfo:
   sbg:modifiedOn: 1623954583
   sbg:revision: 2
   sbg:revisionNotes: use tagged commit
+- sbg:modifiedBy: smgogarten
+  sbg:modifiedOn: 1623957429
+  sbg:revision: 3
+  sbg:revisionNotes: add toolkit and categories
 sbg:sbgMaintained: false
+sbg:toolkit: UW-GAC QC for GWAS
 sbg:validationErrors: []
