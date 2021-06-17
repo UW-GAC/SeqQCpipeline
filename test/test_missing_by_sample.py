@@ -69,7 +69,7 @@ class Platform(unittest.TestCase):
             datefmt='%H:%M:%S',
             level=logging.INFO
         )
-        cls.APP = 'smgogarten/qc-for-gwas-development/missing-by-sample-wf'
+        cls.APP = 'smgogarten/qc-for-gwas-development/missing-rate-by-sample-wf'
         cls.inputs = {}
         cls.TASK_NAME = 'UnitTest_MissingBySample'
         cls.metadata_status = 'fail'
@@ -91,6 +91,10 @@ class Platform(unittest.TestCase):
             names=['1KG_phase3_subset_chr21.gds', '1KG_phase3_subset_chr22.gds'],
             project=cls.project
         )
+        cls.inputs['variant_id'] = cls.session.files.query(
+            names=['variant_include.rds'],
+            project=cls.project
+        )[0]
         cls.inputs['out_prefix'] = 'unittest'
         cls.inputs['cpu'] = 2
         cls.log = logging.getLogger("#unit_test")
