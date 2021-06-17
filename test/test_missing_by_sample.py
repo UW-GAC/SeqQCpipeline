@@ -48,7 +48,7 @@ class Platform(unittest.TestCase):
     project = None
     execution = "platform"
     profile_name = 'bdc'
-    log_filename = 'UnitTest_het_by_sample'
+    log_filename = 'UnitTest_missing_by_sample'
     
     @classmethod
     def setUpClass(cls):
@@ -69,9 +69,9 @@ class Platform(unittest.TestCase):
             datefmt='%H:%M:%S',
             level=logging.INFO
         )
-        cls.APP = 'smgogarten/qc-for-gwas-development/heterozygosity-by-sample-wf'
+        cls.APP = 'smgogarten/qc-for-gwas-development/missing-by-sample-wf'
         cls.inputs = {}
-        cls.TASK_NAME = 'UnitTest_HetBySample'
+        cls.TASK_NAME = 'UnitTest_MissingBySample'
         cls.metadata_status = 'fail'
         cls.naming_status = 'fail'
         if not cls.project:
@@ -92,9 +92,6 @@ class Platform(unittest.TestCase):
             project=cls.project
         )
         cls.inputs['out_prefix'] = 'unittest'
-        cls.inputs['maf_min'] = 0.01
-        cls.inputs['maf_max'] = 0.49
-        cls.inputs['pass_only'] = False
         cls.inputs['cpu'] = 2
         cls.log = logging.getLogger("#unit_test")
         cls.log.info(f" Starting {cls.APP} test")
@@ -133,14 +130,14 @@ class Platform(unittest.TestCase):
         wait(self.task)
         if self.task.status == 'COMPLETED':
             self.log.info(f" Checking {self.APP} output naming")
-            out_expected_name = 'unittest_het_by_sample.rds'
-            out_name = self.task.outputs['het_by_sample'].name
+            out_expected_name = 'unittest_missing_by_sample.rds'
+            out_name = self.task.outputs['missing_by_sample'].name
             if out_name.startswith('_'):
                 self.assertEqual(out_expected_name, '_'.join(out_name.split('_')[2:]))
             else:
                 self.assertEqual(out_expected_name, out_name)
                 
-            out_expected_name = 'unittest_het_by_sample.pdf'
+            out_expected_name = 'unittest_missing_by_sample.pdf'
             out_name = self.task.outputs['plot'].name
             if out_name.startswith('_'):
                 self.assertEqual(out_expected_name, '_'.join(out_name.split('_')[2:]))

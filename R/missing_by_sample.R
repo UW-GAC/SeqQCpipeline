@@ -5,12 +5,12 @@ argp <- arg_parser("Missing by sample")
 argp <- add_argument(argp, "--gds_file", help="GDS file")
 argp <- add_argument(argp, "--out_prefix", help="Prefix for output files", default="")
 argp <- add_argument(argp, "--variant_id", help="File with vector of variant IDs")
-argp <- add_argument(argp, "--num_cores", help="Number of cores to utilize for parallel processing", default=1)
+argp <- add_argument(argp, "--cpu", help="Number of CPUs to utilize for parallel processing", default=1)
 argv <- parse_args(argp)
 
 # load libraries
 library(SeqArray)
-#library(ggplot2)
+library(ggplot2)
 
 # log versions and arguments for reproducibility
 sessionInfo()
@@ -27,10 +27,11 @@ if (!is.na(argv$variant_id)) {
 
 # missing call rate
 # the SeqVarTools missingGenotypeRate is merely a wrapper around seqMissing
-missing.rate <- seqMissing(gds, per.variant=FALSE, parallel=argv$num_cores)
+missing.rate <- seqMissing(gds, per.variant=FALSE, parallel=argv$cpu)
 sample.id <- seqGetData(gds, "sample.id")
+n <- SeqVarTools:::.nVar(gds)
 
-miss.df <- data.frame(sample.id, missing.rate, stringsAsFactors=FALSE)
+miss.df <- data.frame(sample.id, missing.rate, n=n, stringsAsFactors=FALSE)
 
 outfile <- "missing_by_sample.rds"
 if (nchar(argv$out_prefix) > 0) {
@@ -38,9 +39,15 @@ if (nchar(argv$out_prefix) > 0) {
 }
 saveRDS(miss.df, file=outfile)
 
-# plot
-## p <- ggplot(miss.df, aes(missing.rate)) +
-##     geom_histogram(binwidth=0.01, boundary=0)
-## ggsave(paste0(argv$out_prefix, "missing_by_sample.pdf"), plot=p)
-
 seqClose(gds)
+
+
+# plot
+p <- ggplot(miss.df, aes(missing.rate)) +
+    geom_histogram(binwidth=0.01, boundary=0)
+
+outfile <- "missing_by_sample.pdf"
+if (nchar(argv$out_prefix) > 0) {
+    outfile <- paste(argv$out_prefix, outfile, sep="_")
+}
+ggsave(outfile, plot=p)
