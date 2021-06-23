@@ -29,6 +29,7 @@ inputs:
   label: Variant ID file
   doc: RDS file with vector of variant IDs.
   type: File?
+  sbg:fileTypes: RDS
   sbg:x: -476
   sbg:y: -193
 - id: cpu
@@ -36,7 +37,6 @@ inputs:
   doc: Number of CPUs to use.
   type: int?
   sbg:exposed: true
-  sbg:toolDefaultValue: '1'
 
 outputs:
 - id: missing_by_sample
@@ -97,23 +97,23 @@ sbg:appVersion:
 sbg:categories:
 - GWAS
 - Quality Control
-sbg:content_hash: ac767099ec2b998d7579359a38e944b4acfc1fedb6eed7b525493a0bea2033eb2
+sbg:content_hash: a4a87ef7472ebaed5fa19f6a3f58f53c84f4fcca3d99eba0e1baddfbcf4ca396a
 sbg:contributors:
 - smgogarten
 sbg:createdBy: smgogarten
 sbg:createdOn: 1623894386
-sbg:id: smgogarten/qc-for-gwas-development/missing-rate-by-sample-wf/4
+sbg:id: smgogarten/qc-for-gwas-development/missing-rate-by-sample-wf/5
 sbg:image_url:
-sbg:latestRevision: 4
+sbg:latestRevision: 5
 sbg:modifiedBy: smgogarten
-sbg:modifiedOn: 1623957506
+sbg:modifiedOn: 1624408252
 sbg:original_source: |-
-  https://api.sb.biodatacatalyst.nhlbi.nih.gov/v2/apps/smgogarten/qc-for-gwas-development/missing-rate-by-sample-wf/4/raw/
+  https://api.sb.biodatacatalyst.nhlbi.nih.gov/v2/apps/smgogarten/qc-for-gwas-development/missing-rate-by-sample-wf/5/raw/
 sbg:project: smgogarten/qc-for-gwas-development
 sbg:projectName: QC for GWAS - development
 sbg:publisher: sbg
-sbg:revision: 4
-sbg:revisionNotes: add documentation
+sbg:revision: 5
+sbg:revisionNotes: update input file types
 sbg:revisionsInfo:
 - sbg:modifiedBy: smgogarten
   sbg:modifiedOn: 1623894386
@@ -135,6 +135,10 @@ sbg:revisionsInfo:
   sbg:modifiedOn: 1623957506
   sbg:revision: 4
   sbg:revisionNotes: add documentation
+- sbg:modifiedBy: smgogarten
+  sbg:modifiedOn: 1624408252
+  sbg:revision: 5
+  sbg:revisionNotes: update input file types
 sbg:sbgMaintained: false
 sbg:toolkit: UW-GAC QC for GWAS
 sbg:validationErrors: []

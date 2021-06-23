@@ -23,7 +23,7 @@ inputs:
     prefix: --gds_file
     position: 0
     shellQuote: false
-  sbg:category: Input files
+  sbg:category: Input Files
   sbg:fileTypes: GDS
 - id: out_prefix
   label: Output prefix
@@ -42,7 +42,8 @@ inputs:
     prefix: --variant_id
     position: 1
     shellQuote: false
-  sbg:category: Input Options
+  sbg:category: Input Files
+  sbg:fileTypes: RDS
 - id: sample_id
   label: sample ID file
   doc: RDS file with vector of sample IDs.
@@ -51,7 +52,8 @@ inputs:
     prefix: --sample_id
     position: 1
     shellQuote: false
-  sbg:category: Input Options
+  sbg:category: Input Files
+  sbg:fileTypes: RDS
 - id: cpu
   label: Number of CPUs
   doc: Number of CPUs to use.
@@ -97,27 +99,27 @@ hints:
 - class: sbg:SaveLogs
   value: '*.log'
 id: |-
-  https://api.sb.biodatacatalyst.nhlbi.nih.gov/v2/apps/smgogarten/qc-for-gwas-development/missing-rate-by-variant/1/raw/
+  https://api.sb.biodatacatalyst.nhlbi.nih.gov/v2/apps/smgogarten/qc-for-gwas-development/missing-rate-by-variant/2/raw/
 sbg:appVersion:
 - v1.2
 sbg:categories:
 - GWAS
 - Quality Control
-sbg:content_hash: abdf2f2e94317e228abec67e024a7f351f08b911f4a10f26b41ac86a87f797a44
+sbg:content_hash: abf13f6651303575b0e186b110d6ce3727a59d0f82d6ae417bada979cac63f53c
 sbg:contributors:
 - smgogarten
 sbg:createdBy: smgogarten
 sbg:createdOn: 1624405790
-sbg:id: smgogarten/qc-for-gwas-development/missing-rate-by-variant/1
+sbg:id: smgogarten/qc-for-gwas-development/missing-rate-by-variant/2
 sbg:image_url:
-sbg:latestRevision: 1
+sbg:latestRevision: 2
 sbg:modifiedBy: smgogarten
-sbg:modifiedOn: 1624406327
+sbg:modifiedOn: 1624408085
 sbg:project: smgogarten/qc-for-gwas-development
 sbg:projectName: QC for GWAS - development
 sbg:publisher: sbg
-sbg:revision: 1
-sbg:revisionNotes: missing by variant tool
+sbg:revision: 2
+sbg:revisionNotes: add input file types
 sbg:revisionsInfo:
 - sbg:modifiedBy: smgogarten
   sbg:modifiedOn: 1624405790
@@ -127,6 +129,10 @@ sbg:revisionsInfo:
   sbg:modifiedOn: 1624406327
   sbg:revision: 1
   sbg:revisionNotes: missing by variant tool
+- sbg:modifiedBy: smgogarten
+  sbg:modifiedOn: 1624408085
+  sbg:revision: 2
+  sbg:revisionNotes: add input file types
 sbg:sbgMaintained: false
 sbg:toolkit: UW-GAC QC for GWAS
 sbg:validationErrors: []

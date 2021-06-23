@@ -23,7 +23,7 @@ inputs:
     prefix: --gds_file
     position: 0
     shellQuote: false
-  sbg:category: Input files
+  sbg:category: Input Files
   sbg:fileTypes: GDS
 - id: out_prefix
   label: Output prefix
@@ -42,7 +42,8 @@ inputs:
     prefix: --variant_id
     position: 1
     shellQuote: false
-  sbg:category: Input Options
+  sbg:category: Input Files
+  sbg:fileTypes: RDS
 - id: cpu
   label: Number of CPUs
   doc: Number of CPUs to use.
@@ -86,7 +87,7 @@ arguments:
 hints:
 - class: sbg:SaveLogs
   value: '*.log'
-id: smgogarten/qc-for-gwas-development/missing-rate-by-sample/3
+id: smgogarten/qc-for-gwas-development/missing-rate-by-sample/4
 sbg:appVersion:
 - v1.2
 sbg:categories:
@@ -97,16 +98,16 @@ sbg:contributors:
 - smgogarten
 sbg:createdBy: smgogarten
 sbg:createdOn: 1623893007
-sbg:id: smgogarten/qc-for-gwas-development/missing-rate-by-sample/3
+sbg:id: smgogarten/qc-for-gwas-development/missing-rate-by-sample/4
 sbg:image_url:
-sbg:latestRevision: 3
+sbg:latestRevision: 4
 sbg:modifiedBy: smgogarten
-sbg:modifiedOn: 1623957429
+sbg:modifiedOn: 1624408192
 sbg:project: smgogarten/qc-for-gwas-development
 sbg:projectName: QC for GWAS - development
 sbg:publisher: sbg
-sbg:revision: 3
-sbg:revisionNotes: add toolkit and categories
+sbg:revision: 4
+sbg:revisionNotes: update input file types
 sbg:revisionsInfo:
 - sbg:modifiedBy: smgogarten
   sbg:modifiedOn: 1623893007
@@ -124,6 +125,10 @@ sbg:revisionsInfo:
   sbg:modifiedOn: 1623957429
   sbg:revision: 3
   sbg:revisionNotes: add toolkit and categories
+- sbg:modifiedBy: smgogarten
+  sbg:modifiedOn: 1624408192
+  sbg:revision: 4
+  sbg:revisionNotes: update input file types
 sbg:sbgMaintained: false
 sbg:toolkit: UW-GAC QC for GWAS
 sbg:validationErrors: []
