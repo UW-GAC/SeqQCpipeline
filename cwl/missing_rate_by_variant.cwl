@@ -86,7 +86,7 @@ stdout: job.out.log
 baseCommand:
 - wget
 - |-
-  https://raw.githubusercontent.com/UW-GAC/SeqQCpipeline/by_variant/R/missing_by_variant.R
+  https://raw.githubusercontent.com/UW-GAC/SeqQCpipeline/dc93179e48c5a2a60880a669e5a2f72e2403a8b8/R/missing_by_variant.R
 - '&&'
 - R -q --vanilla --args
 arguments:
@@ -99,27 +99,27 @@ hints:
 - class: sbg:SaveLogs
   value: '*.log'
 id: |-
-  https://api.sb.biodatacatalyst.nhlbi.nih.gov/v2/apps/smgogarten/qc-for-gwas-development/missing-rate-by-variant/2/raw/
+  https://api.sb.biodatacatalyst.nhlbi.nih.gov/v2/apps/smgogarten/qc-for-gwas-development/missing-rate-by-variant/3/raw/
 sbg:appVersion:
 - v1.2
 sbg:categories:
 - GWAS
 - Quality Control
-sbg:content_hash: abf13f6651303575b0e186b110d6ce3727a59d0f82d6ae417bada979cac63f53c
+sbg:content_hash: a08fd7e7d851c172b51b2cf1b4bf2dc9dda527aa1d6ad0e317a71dd54ce629670
 sbg:contributors:
 - smgogarten
 sbg:createdBy: smgogarten
 sbg:createdOn: 1624405790
-sbg:id: smgogarten/qc-for-gwas-development/missing-rate-by-variant/2
+sbg:id: smgogarten/qc-for-gwas-development/missing-rate-by-variant/3
 sbg:image_url:
-sbg:latestRevision: 2
+sbg:latestRevision: 3
 sbg:modifiedBy: smgogarten
-sbg:modifiedOn: 1624408085
+sbg:modifiedOn: 1624408617
 sbg:project: smgogarten/qc-for-gwas-development
 sbg:projectName: QC for GWAS - development
 sbg:publisher: sbg
-sbg:revision: 2
-sbg:revisionNotes: add input file types
+sbg:revision: 3
+sbg:revisionNotes: add commit of R script
 sbg:revisionsInfo:
 - sbg:modifiedBy: smgogarten
   sbg:modifiedOn: 1624405790
@@ -133,6 +133,10 @@ sbg:revisionsInfo:
   sbg:modifiedOn: 1624408085
   sbg:revision: 2
   sbg:revisionNotes: add input file types
+- sbg:modifiedBy: smgogarten
+  sbg:modifiedOn: 1624408617
+  sbg:revision: 3
+  sbg:revisionNotes: add commit of R script
 sbg:sbgMaintained: false
 sbg:toolkit: UW-GAC QC for GWAS
 sbg:validationErrors: []
