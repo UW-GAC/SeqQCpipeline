@@ -1,7 +1,7 @@
 library(argparser)
 
 # read arguments
-argp <- arg_parser("Missing by sample")
+argp <- arg_parser("Missing by variant")
 argp <- add_argument(argp, "--gds_file", help="GDS file")
 argp <- add_argument(argp, "--out_prefix", help="Prefix for output files", default="")
 argp <- add_argument(argp, "--sample_id", help="File with vector of sample IDs")
